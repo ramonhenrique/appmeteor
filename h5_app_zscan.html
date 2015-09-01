@@ -1,0 +1,47 @@
+<head>
+    <title>h5_app_zscan</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+        {{> app_title}} {{> app_menu}} {{> app_content}}
+    </div>
+</body>
+<template name="app_title">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">Title</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+        </div>
+    </header>
+</template>
+<template name="app_content">
+    <main class="mdl-layout__content">
+        <div class="page-content">
+            {{> Router}}
+        </div>
+    </main>
+</template>
+<template name="app_menu">
+    <sidebar class="mdl-layout__drawer">
+        <nav class="mdl-navigation">
+            <a href="/convenio" class="mdl-navigation__link">Convênio</a>
+            <a href="/cadastropaciente" class="mdl-navigation__link">Cadastro de Paciente</a>
+        </nav>
+    </sidebar>
+</template>
+<template name="welcome">
+    <span>Seja bem vindo</span>
+</template>
+<template name="convenio">
+    <span>Você está no convênio!</span>
+</template>
+<template name="carregando">
+    <span>Carregando...</span>
+</template>
+<template name="cadastropaciente">
+    Você está no cadastro de paciente!
+</template>
