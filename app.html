@@ -28,8 +28,8 @@
 <template name="app_menu">
     <sidebar class="mdl-layout__drawer">
         <nav class="mdl-navigation">
-            <a href="/convenio" class="mdl-navigation__link">Convênio</a>
-            <a href="/cadastropaciente" class="mdl-navigation__link">Cadastro de Paciente</a>
+            {{#each menuItens}}
+            <a href="{{route}}" class="mdl-navigation__link">{{title}}</a> {{/each}}
         </nav>
     </sidebar>
 </template>
