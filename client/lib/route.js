@@ -1,28 +1,66 @@
-Router.plugin('loading', {
-    loadingTemplate: 'carregando'
-});
+var menuItens = new ReactiveVar([]);
+var data = new ReactiveVar([]);
+var permissoes = {};
 
-Router.plugin('dataNotFound', {
+Router.configure({
+    loadingTemplate: 'carregando',
     notFoundTemplate: 'DataNotFound'
 });
 
-Router.route('/convenio', {
-    waitOn: function() {
-        return Meteor.subscribe('post');
-    },
 
-    action: function() {
-        if (this.ready())
-        // if the sub handle returned from waitOn ready() method returns
-        // true then we're ready to go ahead and render the page.
-            this.render('convenio')
-        else
-        // otherwise render the loading template.
-            this.render('carregando');
-    }
-});
+window.registraPermissao = function registraPermissao(nome, titulo) {
+    permissoes[nome] = {
+        titulo: titulo
+    };
+}
+registraPermissao("executar", "Executar");
+registraPermissao("cadastrar", "Cadastrar");
+registraPermissao("modificar", "Modificar");
+registraPermissao("excluir", "Excluir");
+
+window.registraMenuItem = function registraMenuItem(route, module, title, roles) {
+
+    var arr = menuItens.get();
+
+    arr.push({
+        title: title,
+        route: route
+    });
+
+    menuItens.set(arr);
+
+    Router.route(route, {
+        waitOn: function() {
+            return Meteor.subscribe(module, this.params);
+        },
+        action: function(res) {
+            if (this.ready()) {
+                this.set('data', res);
+                this.render(module)
+            } else
+                this.render('carregando');
+        }
+    });
+}
 
 
 Router.route('/paciente', {
     name: 'paciente'
+});
+
+Router.route('/', {
+    name: 'welcome'
+});
+
+
+
+Template.app_menu.helpers({
+    menuItens: function() {
+        return menuItens.get();
+    }
+})
+Template.app_content.helpers({
+    process: function() {
+        return 'welcome';
+    }
 });
