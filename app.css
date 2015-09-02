@@ -1,1 +1,4 @@
-/* CSS declarations go here */
+.app_title {
+    background: url('/foto.jpg') center / cover;
+    height: 250px;
+}

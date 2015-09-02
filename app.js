@@ -5,10 +5,10 @@ Router.route('/', {
 if (Meteor.isClient) {
     Template.app_menu.helpers({
         menuItens: [{
-            title: "Convêssssnio",
+            title: "Convênio",
             route: '/convenio'
         }, {
-            title: "Paciddddente",
+            title: "Paciente",
             route: '/cadastropaciente'
         }]
     })

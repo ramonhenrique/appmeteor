@@ -1,3 +1,11 @@
+Router.plugin('loading', {
+    loadingTemplate: 'carregando'
+});
+
+Router.plugin('dataNotFound', {
+    notFoundTemplate: 'DataNotFound'
+});
+
 Router.route('/convenio', {
     waitOn: function() {
         return Meteor.subscribe('post');
