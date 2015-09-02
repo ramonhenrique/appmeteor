@@ -1,3 +1,4 @@
+
 Router.route('/', {
     name: 'welcome'
 });
@@ -9,7 +10,7 @@ if (Meteor.isClient) {
             route: '/convenio'
         }, {
             title: "Paciddddente",
-            route: '/cadastropaciente'
+            route: '/paciente'
         }]
     })
     Template.app_content.helpers({

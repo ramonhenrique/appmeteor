@@ -15,6 +15,6 @@ Router.route('/convenio', {
 });
 
 
-Router.route('/cadastroPaciente', {
-    name: 'cadastropaciente'
+Router.route('/paciente', {
+    name: 'paciente'
 });
