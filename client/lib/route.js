@@ -44,8 +44,8 @@ window.registraMenuItem = function registraMenuItem(route, module, title, roles)
 }
 
 
-Router.route('/cadastroPaciente', {
-    name: 'cadastropaciente'
+Router.route('/paciente', {
+    name: 'paciente'
 });
 
 Router.route('/', {
